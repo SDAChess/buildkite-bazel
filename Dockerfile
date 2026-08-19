@@ -1,6 +1,12 @@
-FROM buildkite/agent:3-ubuntu
+FROM docker.io/buildkite/hosted-agent-base:ubuntu-v1.0.1@sha256:f1378abd34fccb2b7b661aaf3b06394509a4f7b5bb8c2f8ad431e7eaa1cabc9c
 
 LABEL org.opencontainers.image.source=https://github.com/SDAChess/buildkite-bazel
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+        build-essential \
+        python3 \
+    && rm -rf /var/lib/apt/lists/*
 
 ARG TARGETARCH
 ARG BAZEL_VERSION=9.1.1
