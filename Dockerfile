@@ -1,5 +1,7 @@
 FROM buildkite/agent:3-ubuntu
 
+LABEL org.opencontainers.image.source=https://github.com/SDAChess/buildkite-bazel
+
 ARG TARGETARCH
 ARG BAZEL_VERSION=9.1.1
 
